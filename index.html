@@ -1,0 +1,2045 @@
+<!DOCTYPE html>
+<html lang="tg">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    >
+
+    <meta name="theme-color" content="#080b12">
+
+    <title>ҲАМРОҲ TJ — Таксӣ онлайн</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- =========================================
+         SPLASH SCREEN
+    ========================================== -->
+
+    <section
+        class="screen splash-screen active"
+        id="screen-splash"
+    >
+
+        <div class="splash-bg"></div>
+
+        <div class="splash-content">
+
+            <div class="brand-logo">
+                <div class="brand-icon">
+                    Ҳ
+                </div>
+
+                <div>
+                    <h1>ҲАМРОҲ</h1>
+                    <span>TJ</span>
+                </div>
+            </div>
+
+            <p class="splash-subtitle">
+                Ҳамроҳи ту дар ҳар роҳ
+            </p>
+
+            <div class="splash-car">
+                🚕
+            </div>
+
+            <div class="loading-line">
+                <span></span>
+            </div>
+
+            <p class="loading-text">
+                Система бор шуда истодааст...
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         ROLE SELECT
+    ========================================== -->
+
+    <section
+        class="screen role-screen"
+        id="screen-role"
+    >
+
+        <div class="role-top">
+
+            <div class="mini-logo">
+                <div class="mini-logo-icon">
+                    Ҳ
+                </div>
+
+                <strong>
+                    ҲАМРОҲ <small>TJ</small>
+                </strong>
+            </div>
+
+            <button
+                class="icon-button"
+                onclick="openAbout()"
+                aria-label="Дар бораи мо"
+            >
+                i
+            </button>
+
+        </div>
+
+
+        <div class="role-hero">
+
+            <div class="hero-badge">
+                🇹🇯 Барои Тоҷикистон
+            </div>
+
+            <h1>
+                Хуш омадед!
+            </h1>
+
+            <p>
+                Барои идома интихоб кунед,
+                ки шумо кӣ ҳастед.
+            </p>
+
+        </div>
+
+
+        <div class="role-cards">
+
+            <!-- CLIENT -->
+
+            <button
+                class="role-card client-role"
+                onclick="selectRole('client')"
+            >
+
+                <div class="role-card-icon">
+                    🧑
+                </div>
+
+                <div class="role-card-text">
+
+                    <strong>
+                        Клиент
+                    </strong>
+
+                    <span>
+                        Таксӣ фармоиш додан
+                    </span>
+
+                </div>
+
+                <div class="role-arrow">
+                    →
+                </div>
+
+            </button>
+
+
+            <!-- DRIVER -->
+
+            <button
+                class="role-card driver-role"
+                onclick="selectRole('driver')"
+            >
+
+                <div class="role-card-icon">
+                    🚕
+                </div>
+
+                <div class="role-card-text">
+
+                    <strong>
+                        Таксист
+                    </strong>
+
+                    <span>
+                        Фармоиш қабул кардан
+                    </span>
+
+                </div>
+
+                <div class="role-arrow">
+                    →
+                </div>
+
+            </button>
+
+        </div>
+
+
+        <div class="role-info">
+
+            <div class="info-icon">
+                🔐
+            </div>
+
+            <div>
+                <strong>
+                    Амният дар ҷои аввал
+                </strong>
+
+                <p>
+                    Маълумоти шумо ҳифз карда мешавад.
+                </p>
+            </div>
+
+        </div>
+
+
+        <footer class="simple-footer">
+            © 2026 ҲАМРОҲ TJ
+        </footer>
+
+    </section>
+
+
+    <!-- =========================================
+         CLIENT LOGIN
+    ========================================== -->
+
+    <section
+        class="screen auth-screen"
+        id="screen-client-login"
+    >
+
+        <header class="auth-header">
+
+            <button
+                class="back-button"
+                onclick="showScreen('screen-role')"
+            >
+                ←
+            </button>
+
+            <div class="auth-brand">
+                ҲАМРОҲ <span>TJ</span>
+            </div>
+
+        </header>
+
+
+        <div class="auth-content">
+
+            <div class="auth-icon client-icon">
+                🧑
+            </div>
+
+            <h1>
+                Бақайдгирии клиент
+            </h1>
+
+            <p>
+                Рақами телефони худро ворид кунед.
+            </p>
+
+
+            <div class="input-group">
+
+                <label>
+                    Рақами телефон
+                </label>
+
+                <div class="phone-input">
+
+                    <span>
+                        +992
+                    </span>
+
+                    <input
+                        type="tel"
+                        id="client-phone"
+                        maxlength="9"
+                        inputmode="numeric"
+                        placeholder="90 123 45 67"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="primary-button"
+                onclick="clientLogin()"
+            >
+                Идома додан
+                <span>→</span>
+            </button>
+
+
+            <p class="terms-text">
+                Бо идома додан шумо
+                <u>шартҳои истифода</u>
+                ва
+                <u>қоидаҳои махфият</u>-ро қабул мекунед.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         DRIVER LOGIN
+    ========================================== -->
+
+    <section
+        class="screen auth-screen"
+        id="screen-driver-login"
+    >
+
+        <header class="auth-header">
+
+            <button
+                class="back-button"
+                onclick="showScreen('screen-role')"
+            >
+                ←
+            </button>
+
+            <div class="auth-brand">
+                ҲАМРОҲ <span>TJ</span>
+            </div>
+
+        </header>
+
+
+        <div class="auth-content">
+
+            <div class="auth-icon driver-icon">
+                🚕
+            </div>
+
+            <h1>
+                Кабинети таксист
+            </h1>
+
+            <p>
+                Барои ворид шудан маълумоти худро ворид кунед.
+            </p>
+
+
+            <div class="input-group">
+
+                <label>
+                    Номи пурра
+                </label>
+
+                <input
+                    type="text"
+                    id="driver-name"
+                    placeholder="Ному насаб"
+                >
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>
+                    Рақами телефон
+                </label>
+
+                <div class="phone-input">
+
+                    <span>
+                        +992
+                    </span>
+
+                    <input
+                        type="tel"
+                        id="driver-phone"
+                        maxlength="9"
+                        inputmode="numeric"
+                        placeholder="90 123 45 67"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>
+                    Мошин
+                </label>
+
+                <input
+                    type="text"
+                    id="driver-car"
+                    placeholder="Toyota Camry"
+                >
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>
+                    Рақами давлатӣ
+                </label>
+
+                <input
+                    type="text"
+                    id="driver-number"
+                    placeholder="1234 AB 01"
+                >
+
+            </div>
+
+
+            <button
+                class="primary-button"
+                onclick="driverLogin()"
+            >
+                Ба кабинети таксист
+                <span>→</span>
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         CLIENT HOME
+    ========================================== -->
+
+    <section
+        class="screen main-screen"
+        id="screen-client-home"
+    >
+
+        <header class="main-header">
+
+            <div class="header-brand">
+
+                <div class="header-logo">
+                    Ҳ
+                </div>
+
+                <div>
+                    <strong>
+                        ҲАМРОҲ
+                    </strong>
+
+                    <span>
+                        TJ
+                    </span>
+                </div>
+
+            </div>
+
+
+            <button
+                class="header-profile"
+                onclick="openClientProfile()"
+            >
+                🧑
+            </button>
+
+        </header>
+
+
+        <div class="client-content">
+
+            <!-- GREETING -->
+
+            <div class="greeting">
+
+                <span>
+                    Салом 👋
+                </span>
+
+                <h2 id="client-name-display">
+                    Хуш омадед!
+                </h2>
+
+            </div>
+
+
+            <!-- ACTIVE USERS -->
+
+            <div class="live-users-card">
+
+                <div class="live-dot"></div>
+
+                <div>
+
+                    <strong>
+                        Ҳоло истифода мебаранд
+                    </strong>
+
+                    <span id="active-users">
+                        1 248 нафар
+                    </span>
+
+                </div>
+
+                <div class="users-icon">
+                    👥
+                </div>
+
+            </div>
+
+
+            <!-- MAP HERO -->
+
+            <div class="map-card">
+
+                <div class="map-background">
+
+                    <div class="map-road road-one"></div>
+                    <div class="map-road road-two"></div>
+                    <div class="map-road road-three"></div>
+
+                    <div class="map-pin current">
+                        📍
+                    </div>
+
+                    <div class="map-taxi taxi-one">
+                        🚕
+                    </div>
+
+                    <div class="map-taxi taxi-two">
+                        🚕
+                    </div>
+
+                </div>
+
+
+                <div class="map-overlay">
+
+                    <span>
+                        📍 Душанбе
+                    </span>
+
+                    <strong>
+                        Таксиҳои наздик
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- ORDER BOX -->
+
+            <div class="order-box">
+
+                <div class="order-title">
+
+                    <div>
+                        <span>
+                            Фармоиши нав
+                        </span>
+
+                        <h3>
+                            Ба куҷо меравед?
+                        </h3>
+                    </div>
+
+                    <span class="order-icon">
+                        🚕
+                    </span>
+
+                </div>
+
+
+                <!-- FROM -->
+
+                <button
+                    class="location-row"
+                    onclick="openLocationPicker('from')"
+                >
+
+                    <div class="location-icon blue">
+                        ●
+                    </div>
+
+                    <div class="location-info">
+
+                        <small>
+                            Аз куҷо?
+                        </small>
+
+                        <strong id="pickup-location">
+                            Ҷойи ҳозираи ман
+                        </strong>
+
+                    </div>
+
+                    <span>
+                        →
+                    </span>
+
+                </button>
+
+
+                <div class="location-line"></div>
+
+
+                <!-- TO -->
+
+                <button
+                    class="location-row"
+                    onclick="openLocationPicker('to')"
+                >
+
+                    <div class="location-icon red">
+                        ●
+                    </div>
+
+                    <div class="location-info">
+
+                        <small>
+                            Ба куҷо?
+                        </small>
+
+                        <strong id="destination-location">
+                            Мақсадро интихоб кунед
+                        </strong>
+
+                    </div>
+
+                    <span>
+                        →
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="primary-button order-button"
+                    onclick="openOrderDetails()"
+                >
+                    🚕 Фармоиш додани таксӣ
+                </button>
+
+            </div>
+
+
+            <!-- QUICK SERVICES -->
+
+            <h3 class="section-title">
+                Хизматрасониҳо
+            </h3>
+
+
+            <div class="quick-grid">
+
+                <button
+                    class="quick-card"
+                    onclick="openOrderDetails()"
+                >
+                    <span>🚕</span>
+                    <strong>Таксӣ</strong>
+                    <small>Фармоиш</small>
+                </button>
+
+
+                <button
+                    class="quick-card"
+                    onclick="openMyTrips()"
+                >
+                    <span>🕘</span>
+                    <strong>Сафарҳо</strong>
+                    <small>Таърих</small>
+                </button>
+
+
+                <button
+                    class="quick-card"
+                    onclick="openSubscription()"
+                >
+                    <span>👑</span>
+                    <strong>Обуна</strong>
+                    <small>2 сомонӣ</small>
+                </button>
+
+
+                <button
+                    class="quick-card"
+                    onclick="openSupport()"
+                >
+                    <span>🆘</span>
+                    <strong>Дастгирӣ</strong>
+                    <small>24/7</small>
+                </button>
+
+            </div>
+
+
+            <!-- BENEFITS -->
+
+            <h3 class="section-title">
+                Чаро ҲАМРОҲ TJ?
+            </h3>
+
+
+            <div class="benefit-list">
+
+                <div class="benefit-card">
+
+                    <div>
+                        ⚡
+                    </div>
+
+                    <section>
+                        <strong>
+                            Зуд
+                        </strong>
+
+                        <p>
+                            Таксии наздикро зуд пайдо кунед.
+                        </p>
+                    </section>
+
+                </div>
+
+
+                <div class="benefit-card">
+
+                    <div>
+                        🛡️
+                    </div>
+
+                    <section>
+                        <strong>
+                            Бехатар
+                        </strong>
+
+                        <p>
+                            Маълумоти ронанда пешакӣ нишон дода мешавад.
+                        </p>
+                    </section>
+
+                </div>
+
+
+                <div class="benefit-card">
+
+                    <div>
+                        💰
+                    </div>
+
+                    <section>
+                        <strong>
+                            Нарх равшан
+                        </strong>
+
+                        <p>
+                            Пеш аз фармоиш нархи тахминӣ мебинед.
+                        </p>
+                    </section>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- CLIENT NAV -->
+
+        <nav class="bottom-nav">
+
+            <button
+                class="nav-item active"
+                onclick="showScreen('screen-client-home')"
+            >
+                <span>⌂</span>
+                <small>Асосӣ</small>
+            </button>
+
+            <button
+                class="nav-item"
+                onclick="openMyTrips()"
+            >
+                <span>▣</span>
+                <small>Сафарҳо</small>
+            </button>
+
+            <button
+                class="nav-item"
+                onclick="openSubscription()"
+            >
+                <span>♛</span>
+                <small>Обуна</small>
+            </button>
+
+            <button
+                class="nav-item"
+                onclick="openClientProfile()"
+            >
+                <span>●</span>
+                <small>Профил</small>
+            </button>
+
+        </nav>
+
+    </section>
+
+
+    <!-- =========================================
+         ORDER DETAILS
+    ========================================== -->
+
+    <section
+        class="screen inner-screen"
+        id="screen-order-details"
+    >
+
+        <header class="page-header">
+
+            <button
+                class="back-button"
+                onclick="showScreen('screen-client-home')"
+            >
+                ←
+            </button>
+
+            <div>
+                <strong>
+                    Фармоиши таксӣ
+                </strong>
+
+                <small>
+                    Тафсилоти сафар
+                </small>
+            </div>
+
+        </header>
+
+
+        <div class="page-content">
+
+            <div class="route-card">
+
+                <div class="route-point">
+
+                    <span class="route-dot blue"></span>
+
+                    <div>
+                        <small>
+                            Аз куҷо
+                        </small>
+
+                        <strong id="order-from">
+                            Ҷойи ҳозираи ман
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="route-line"></div>
+
+
+                <div class="route-point">
+
+                    <span class="route-dot red"></span>
+
+                    <div>
+                        <small>
+                            Ба куҷо
+                        </small>
+
+                        <strong id="order-to">
+                            Мақсадро интихоб кунед
+                        </strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <h3 class="section-title">
+                Интихоби мошин
+            </h3>
+
+
+            <div class="car-options">
+
+                <button
+                    class="car-option selected"
+                    data-car="econom"
+                    onclick="selectCar('econom')"
+                >
+
+                    <span class="car-image">
+                        🚕
+                    </span>
+
+                    <div>
+                        <strong>
+                            Иқтисодӣ
+                        </strong>
+
+                        <small>
+                            То 4 нафар
+                        </small>
+                    </div>
+
+                    <b>
+                        12 сомонӣ
+                    </b>
+
+                </button>
+
+
+                <button
+                    class="car-option"
+                    data-car="comfort"
+                    onclick="selectCar('comfort')"
+                >
+
+                    <span class="car-image">
+                        🚗
+                    </span>
+
+                    <div>
+                        <strong>
+                            Комфорт
+                        </strong>
+
+                        <small>
+                            То 4 нафар
+                        </small>
+                    </div>
+
+                    <b>
+                        18 сомонӣ
+                    </b>
+
+                </button>
+
+
+                <button
+                    class="car-option"
+                    data-car="business"
+                    onclick="selectCar('business')"
+                >
+
+                    <span class="car-image">
+                        🚘
+                    </span>
+
+                    <div>
+                        <strong>
+                            Бизнес
+                        </strong>
+
+                        <small>
+                            То 4 нафар
+                        </small>
+                    </div>
+
+                    <b>
+                        25 сомонӣ
+                    </b>
+
+                </button>
+
+            </div>
+
+
+            <h3 class="section-title">
+                Шумораи мусофирон
+            </h3>
+
+
+            <div class="passenger-selector">
+
+                <button
+                    onclick="changePassengers(-1)"
+                >
+                    −
+                </button>
+
+                <strong id="passenger-count">
+                    1
+                </strong>
+
+                <span>
+                    мусофир
+                </span>
+
+                <button
+                    onclick="changePassengers(1)"
+                >
+                    +
+                </button>
+
+            </div>
+
+
+            <div class="price-summary">
+
+                <div>
+                    <span>
+                        Нархи тахминӣ
+                    </span>
+
+                    <strong id="estimated-price">
+                        12 сомонӣ
+                    </strong>
+                </div>
+
+                <small>
+                    Нархи ниҳоӣ вобаста ба масофа ҳисоб мешавад.
+                </small>
+
+            </div>
+
+
+            <button
+                class="primary-button large-button"
+                onclick="createTaxiOrder()"
+            >
+                🚕 Фармоиш додан
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         ACTIVE TRIP
+    ========================================== -->
+
+    <section
+        class="screen inner-screen"
+        id="screen-active-trip"
+    >
+
+        <header class="page-header">
+
+            <button
+                class="back-button"
+                onclick="showScreen('screen-client-home')"
+            >
+                ←
+            </button>
+
+            <div>
+                <strong>
+                    Сафар
+                </strong>
+
+                <small id="trip-number">
+                    №4587
+                </small>
+            </div>
+
+            <span class="online-badge">
+                ● Ҷараён дорад
+            </span>
+
+        </header>
+
+
+        <div class="page-content">
+
+            <div class="live-map">
+
+                <div class="live-road"></div>
+
+                <div class="live-user">
+                    ●
+                </div>
+
+                <div class="live-driver">
+                    🚕
+                </div>
+
+                <div class="map-distance">
+                    3.5 км
+                </div>
+
+            </div>
+
+
+            <div class="driver-card">
+
+                <div class="driver-avatar">
+                    👨
+                </div>
+
+                <div class="driver-info">
+
+                    <strong>
+                        Алишер
+                    </strong>
+
+                    <span>
+                        ⭐ 4.9 · 124 сафар
+                    </span>
+
+                    <small>
+                        Toyota Camry · Сиёҳ
+                    </small>
+
+                </div>
+
+                <button
+                    onclick="callDriver()"
+                >
+                    📞
+                </button>
+
+                <button
+                    onclick="chatDriver()"
+                >
+                    💬
+                </button>
+
+            </div>
+
+
+            <div class="trip-status-card">
+
+                <div class="status-icon">
+                    🚕
+                </div>
+
+                <div>
+                    <strong id="trip-status">
+                        Ронанда ба тарафи шумо ҳаракат дорад
+                    </strong>
+
+                    <span>
+                        Тақрибан 3 дақиқа
+                    </span>
+                </div>
+
+            </div>
+
+
+            <button
+                class="danger-button"
+                onclick="cancelTrip()"
+            >
+                Бекор кардани фармоиш
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         SUBSCRIPTION
+    ========================================== -->
+
+    <section
+        class="screen inner-screen"
+        id="screen-subscription"
+    >
+
+        <header class="page-header">
+
+            <button
+                class="back-button"
+                onclick="showScreen('screen-client-home')"
+            >
+                ←
+            </button>
+
+            <div>
+                <strong>
+                    Обуна
+                </strong>
+
+                <small>
+                    ҲАМРОҲ TJ
+                </small>
+            </div>
+
+        </header>
+
+
+        <div class="page-content">
+
+            <div class="premium-card">
+
+                <div class="premium-crown">
+                    ♛
+                </div>
+
+                <h2>
+                    ҲАМРОҲ Premium
+                </h2>
+
+                <p>
+                    Моҳи аввал пурра ройгон
+                </p>
+
+                <div class="premium-price">
+                    <strong>
+                        0 сомонӣ
+                    </strong>
+
+                    <span>
+                        моҳи аввал
+                    </span>
+                </div>
+
+                <div class="premium-next">
+                    Баъд аз моҳи аввал —
+                    <strong>
+                        2 сомонӣ / моҳ
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <div class="subscription-status-card">
+
+                <div class="status-circle">
+                    ✓
+                </div>
+
+                <div>
+
+                    <strong>
+                        Моҳи аввал ройгон
+                    </strong>
+
+                    <span id="subscription-status">
+                        Фаъол
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <h3 class="section-title">
+                Бартариҳо
+            </h3>
+
+
+            <div class="feature-list">
+
+                <div>
+                    ✓
+                    <span>
+                        Фармоиши таксӣ
+                    </span>
+                </div>
+
+                <div>
+                    ✓
+                    <span>
+                        Дидани маълумоти ронанда
+                    </span>
+                </div>
+
+                <div>
+                    ✓
+                    <span>
+                        Пайгирии сафар
+                    </span>
+                </div>
+
+                <div>
+                    ✓
+                    <span>
+                        Таърихи сафарҳо
+                    </span>
+                </div>
+
+            </div>
+
+
+            <div class="payment-info">
+
+                <small>
+                    Аз моҳи 2-юм пардохт:
+                </small>
+
+                <strong>
+                    2 сомонӣ / моҳ
+                </strong>
+
+                <span>
+                    Рақами пардохт:
+                    <b>90131352</b>
+                </span>
+
+            </div>
+
+
+            <button
+                class="primary-button large-button"
+                onclick="startPayment()"
+            >
+                💳 Идома додан
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         PAYMENT
+    ========================================== -->
+
+    <section
+        class="screen inner-screen"
+        id="screen-payment"
+    >
+
+        <header class="page-header">
+
+            <button
+                class="back-button"
+                onclick="showScreen('screen-subscription')"
+            >
+                ←
+            </button>
+
+            <div>
+                <strong>
+                    Пардохт
+                </strong>
+
+                <small>
+                    Обунаи моҳона
+                </small>
+            </div>
+
+        </header>
+
+
+        <div class="page-content">
+
+            <div class="payment-total">
+
+                <span>
+                    Маблағи пардохт
+                </span>
+
+                <strong>
+                    2 сомонӣ
+                </strong>
+
+            </div>
+
+
+            <div class="payment-number-card">
+
+                <span>
+                    Рақами пардохт
+                </span>
+
+                <strong>
+                    90131352
+                </strong>
+
+                <button
+                    onclick="copyPaymentNumber()"
+                >
+                    📋 Нусха гирифтан
+                </button>
+
+            </div>
+
+
+            <div class="payment-warning">
+
+                <strong>
+                    ⚠️ Муҳим
+                </strong>
+
+                <p>
+                    Аввал 2 сомонӣ ба рақами боло
+                    пардохт кунед. Баъд тугмаи
+                    «Пардохт кардам»-ро пахш кунед.
+                </p>
+
+            </div>
+
+
+            <button
+                class="primary-button large-button"
+                onclick="paymentSent()"
+            >
+                ✓ Пардохт кардам
+            </button>
+
+
+            <p class="payment-note">
+                Пас аз пайваст кардани Telegram,
+                пардохт барои тасдиқ ба система фиристода мешавад.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         PAYMENT SUCCESS
+    ========================================== -->
+
+    <section
+        class="screen success-screen"
+        id="screen-payment-success"
+    >
+
+        <div class="success-circle">
+            ✓
+        </div>
+
+        <h1>
+            Пардохт қабул шуд!
+        </h1>
+
+        <p>
+            Дархости пардохти шумо ба системаи
+            ҲАМРОҲ TJ фиристода шуд.
+        </p>
+
+        <div class="telegram-box">
+
+            <span>
+                ✈️
+            </span>
+
+            <div>
+
+                <strong>
+                    Тасдиқи Telegram
+                </strong>
+
+                <small>
+                    Пас аз пайваст шудан,
+                    администратор пардохтро тасдиқ мекунад.
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="primary-button"
+            onclick="showScreen('screen-client-home')"
+        >
+            Ба саҳифаи асосӣ
+        </button>
+
+    </section>
+
+
+    <!-- =========================================
+         TRIPS
+    ========================================== -->
+
+    <section
+        class="screen inner-screen"
+        id="screen-trips"
+    >
+
+        <header class="page-header">
+
+            <button
+                class="back-button"
+                onclick="showScreen('screen-client-home')"
+            >
+                ←
+            </button>
+
+            <div>
+                <strong>
+                    Сафарҳои ман
+                </strong>
+
+                <small>
+                    Таърихи фармоишҳо
+                </small>
+            </div>
+
+        </header>
+
+
+        <div class="page-content">
+
+            <div class="trip-history-card">
+
+                <div class="history-icon">
+                    🚕
+                </div>
+
+                <div>
+
+                    <strong>
+                        Душанбе → Маркази шаҳр
+                    </strong>
+
+                    <span>
+                        Имрӯз · 14:30
+                    </span>
+
+                </div>
+
+                <b>
+                    12 сомонӣ
+                </b>
+
+            </div>
+
+
+            <div class="trip-history-card">
+
+                <div class="history-icon">
+                    🚕
+                </div>
+
+                <div>
+
+                    <strong>
+                        Сино → Боғи Рӯдакӣ
+                    </strong>
+
+                    <span>
+                        Дирӯз · 18:20
+                    </span>
+
+                </div>
+
+                <b>
+                    15 сомонӣ
+                </b>
+
+            </div>
+
+
+            <div class="empty-history">
+
+                <span>
+                    🕘
+                </span>
+
+                <strong>
+                    Сафарҳои бештар пайдо мешаванд
+                </strong>
+
+                <p>
+                    Ҳар фармоиши шумо дар ин ҷо нигоҳ дошта мешавад.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         CLIENT PROFILE
+    ========================================== -->
+
+    <section
+        class="screen inner-screen"
+        id="screen-profile"
+    >
+
+        <header class="page-header">
+
+            <button
+                class="back-button"
+                onclick="showScreen('screen-client-home')"
+            >
+                ←
+            </button>
+
+            <div>
+                <strong>
+                    Профил
+                </strong>
+
+                <small>
+                    Ҳисоби ман
+                </small>
+            </div>
+
+        </header>
+
+
+        <div class="page-content">
+
+            <div class="profile-card">
+
+                <div class="profile-avatar">
+                    🧑
+                </div>
+
+                <div>
+
+                    <strong id="profile-name">
+                        Клиенти ҲАМРОҲ
+                    </strong>
+
+                    <span id="profile-phone">
+                        +992 90 123 45 67
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="profile-menu">
+
+                <button onclick="openMyTrips()">
+                    <span>🕘</span>
+                    <strong>Сафарҳои ман</strong>
+                    <b>→</b>
+                </button>
+
+                <button onclick="openSubscription()">
+                    <span>♛</span>
+                    <strong>Обуна</strong>
+                    <b>→</b>
+                </button>
+
+                <button onclick="openSupport()">
+                    <span>🆘</span>
+                    <strong>Дастгирӣ</strong>
+                    <b>→</b>
+                </button>
+
+                <button onclick="openSettings()">
+                    <span>⚙️</span>
+                    <strong>Танзимот</strong>
+                    <b>→</b>
+                </button>
+
+            </div>
+
+
+            <button
+                class="logout-button"
+                onclick="logout()"
+            >
+                Баромадан
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         DRIVER HOME
+    ========================================== -->
+
+    <section
+        class="screen main-screen"
+        id="screen-driver-home"
+    >
+
+        <header class="main-header">
+
+            <div class="header-brand">
+
+                <div class="header-logo">
+                    Ҳ
+                </div>
+
+                <div>
+                    <strong>
+                        ҲАМРОҲ
+                    </strong>
+
+                    <span>
+                        TJ
+                    </span>
+                </div>
+
+            </div>
+
+
+            <div class="driver-online">
+
+                <span></span>
+
+                Онлайн
+
+            </div>
+
+        </header>
+
+
+        <div class="client-content">
+
+            <div class="driver-welcome">
+
+                <span>
+                    Салом, ронанда 👋
+                </span>
+
+                <h2 id="driver-name-display">
+                    Таксист
+                </h2>
+
+            </div>
+
+
+            <div class="driver-income-card">
+
+                <span>
+                    Даромади имрӯз
+                </span>
+
+                <strong>
+                    0 сомонӣ
+                </strong>
+
+                <small>
+                    0 сафар
+                </small>
+
+            </div>
+
+
+            <h3 class="section-title">
+                Фармоишҳои наздик
+            </h3>
+
+
+            <div id="driver-orders">
+
+                <div class="driver-order-card">
+
+                    <div class="order-route-mini">
+
+                        <strong>
+                            Душанбе
+                        </strong>
+
+                        <span>
+                            ↓
+                        </span>
+
+                        <strong>
+                            Маркази савдо
+                        </strong>
+
+                    </div>
+
+                    <div class="driver-order-info">
+
+                        <span>
+                            📍 2.4 км
+                        </span>
+
+                        <span>
+                            👥 2 нафар
+                        </span>
+
+                        <strong>
+                            15 сомонӣ
+                        </strong>
+
+                    </div>
+
+                    <button
+                        class="primary-button"
+                        onclick="acceptDriverOrder()"
+                    >
+                        Қабул кардан
+                    </button>
+
+                </div>
+
+
+                <div class="driver-order-card">
+
+                    <div class="order-route-mini">
+
+                        <strong>
+                            Сино
+                        </strong>
+
+                        <span>
+                            ↓
+                        </span>
+
+                        <strong>
+                            Боғи Рӯдакӣ
+                        </strong>
+
+                    </div>
+
+                    <div class="driver-order-info">
+
+                        <span>
+                            📍 3.8 км
+                        </span>
+
+                        <span>
+                            👥 1 нафар
+                        </span>
+
+                        <strong>
+                            18 сомонӣ
+                        </strong>
+
+                    </div>
+
+                    <button
+                        class="secondary-button"
+                        onclick="acceptDriverOrder()"
+                    >
+                        Дидан
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <h3 class="section-title">
+                Статистика
+            </h3>
+
+
+            <div class="driver-stats">
+
+                <div>
+                    <strong>
+                        0
+                    </strong>
+
+                    <span>
+                        Сафар
+                    </span>
+                </div>
+
+                <div>
+                    <strong>
+                        0
+                    </strong>
+
+                    <span>
+                        Соат
+                    </span>
+                </div>
+
+                <div>
+                    <strong>
+                        5.0
+                    </strong>
+
+                    <span>
+                        Рейтинг
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <nav class="bottom-nav">
+
+            <button
+                class="nav-item active"
+                onclick="showScreen('screen-driver-home')"
+            >
+                <span>⌂</span>
+                <small>Асосӣ</small>
+            </button>
+
+            <button
+                class="nav-item"
+                onclick="openDriverOrders()"
+            >
+                <span>▣</span>
+                <small>Фармоишҳо</small>
+            </button>
+
+            <button
+                class="nav-item"
+                onclick="openDriverIncome()"
+            >
+                <span>₸</span>
+                <small>Даромад</small>
+            </button>
+
+            <button
+                class="nav-item"
+                onclick="openDriverProfile()"
+            >
+                <span>●</span>
+                <small>Профил</small>
+            </button>
+
+        </nav>
+
+    </section>
+
+
+    <!-- =========================================
+         SUPPORT
+    ========================================== -->
+
+    <section
+        class="screen inner-screen"
+        id="screen-support"
+    >
+
+        <header class="page-header">
+
+            <button
+                class="back-button"
+                onclick="showScreen('screen-client-home')"
+            >
+                ←
+            </button>
+
+            <div>
+                <strong>
+                    Дастгирӣ
+                </strong>
+
+                <small>
+                    Мо ҳамеша дар наздикӣ ҳастем
+                </small>
+            </div>
+
+        </header>
+
+
+        <div class="page-content">
+
+            <div class="support-hero">
+
+                <span>
+                    🛟
+                </span>
+
+                <h2>
+                    Чӣ кӯмак лозим аст?
+                </h2>
+
+                <p>
+                    Саволи худро ба мо фиристед.
+                </p>
+
+            </div>
+
+
+            <button
+                class="support-action"
+                onclick="openSupportChat()"
+            >
+                💬
+                <span>
+                    Чат бо дастгирӣ
+                </span>
+                →
+            </button>
+
+
+            <button
+                class="support-action"
+                onclick="callSupport()"
+            >
+                📞
+                <span>
+                    Занг ба оператор
+                </span>
+                →
+            </button>
+
+
+            <button
+                class="support-action"
+                onclick="openFAQ()"
+            >
+                ❓
+                <span>
+                    Саволҳои маъмул
+                </span>
+                →
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         MODAL
+    ========================================== -->
+
+    <div
+        class="modal"
+        id="modal"
+    >
+        <div class="modal-overlay"></div>
+
+        <div class="modal-box">
+
+            <button
+                class="modal-close"
+                onclick="closeModal()"
+            >
+                ✕
+            </button>
+
+            <div id="modal-content"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================
+         TOAST
+    ========================================== -->
+
+    <div
+        class="toast"
+        id="toast"
+    >
+        Паём
+    </div>
+
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
